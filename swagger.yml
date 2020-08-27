@@ -1,0 +1,39 @@
+swagger: "2.0"
+info:
+  description: This is the swagger file that goes with our server code
+  version: "1.0.0"
+  title: Swagger ReST Article
+consumes:
+  - application/json
+produces:
+  - application/json
+
+basePath: /api
+
+# Paths supported by the server application
+paths:
+  /pokemon/{name}:
+    get:
+      operationId: pokemon.read_one
+      tags:
+        - Pokemon
+      summary: Get one pokemon description
+      description: Get one pokemon description
+      parameters:
+        - name: name
+          in: path
+          description: name of the pokemon to get
+          type: string
+          required: True
+      responses:
+        200:
+          description: Successfully read pokemon
+          schema:
+            properties:
+              name:
+                type: string
+              description:
+                type: string
+
+
+
